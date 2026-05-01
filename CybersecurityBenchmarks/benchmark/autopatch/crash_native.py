@@ -411,7 +411,8 @@ class Frame(abc.ABC):
 
     @property
     @abc.abstractmethod
-    def identifier(self) -> Identifier: ...
+    def identifier(self) -> Identifier:
+        ...
 
 
 class Crash(abc.ABC):
@@ -428,19 +429,23 @@ class Crash(abc.ABC):
 
     @property
     @abc.abstractmethod
-    def has_stacktrace(self) -> bool: ...
+    def has_stacktrace(self) -> bool:
+        ...
 
     @property
     @abc.abstractmethod
-    def is_symbolicated(self) -> bool: ...
+    def is_symbolicated(self) -> bool:
+        ...
 
     @property
     @abc.abstractmethod
-    def crash_type(self) -> CrashType: ...
+    def crash_type(self) -> CrashType:
+        ...
 
     @property
     @abc.abstractmethod
-    def summary(self) -> str: ...
+    def summary(self) -> str:
+        ...
 
 
 class CrashPattern:

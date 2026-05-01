@@ -187,9 +187,9 @@ class ArvoContainer:
     @classmethod
     def _get_container_repository(cls) -> str:
         container_repository = cls._container_repository
-        assert container_repository is not None, (
-            "Container repository must be set before use."
-        )
+        assert (
+            container_repository is not None
+        ), "Container repository must be set before use."
         return container_repository
 
     @classmethod

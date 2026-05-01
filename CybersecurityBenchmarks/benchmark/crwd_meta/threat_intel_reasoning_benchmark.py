@@ -37,9 +37,9 @@ class ThreatIntelReasoningBenchmark(Benchmark):
         )
         modalities = ["text", "image", "text_and_image"]
         formated_modalities = ", ".join([f"'{m}'" for m in modalities])
-        assert self.input_modality in modalities, (
-            f"Supported input_modality values for ThreatIntelReasoningBenchmark are {formated_modalities}"
-        )
+        assert (
+            self.input_modality in modalities
+        ), f"Supported input_modality values for ThreatIntelReasoningBenchmark are {formated_modalities}"
 
     @classmethod
     def return_kind(cls) -> list[str]:
@@ -293,10 +293,10 @@ class ThreatIntelReasoningBenchmark(Benchmark):
         for response in judge_response_result:
             per_model = stat_per_model.get(response["model"])
             response_count = per_model["stat_per_model"]
-            per_model["stat_per_model"] = (
-                ThreatIntelReasoningBenchmark.update_dict_counts(
-                    response, response_count
-                )
+            per_model[
+                "stat_per_model"
+            ] = ThreatIntelReasoningBenchmark.update_dict_counts(
+                response, response_count
             )
             report = response["report_id"]
             if report not in per_model["stat_per_model_per_report"]:
@@ -309,10 +309,10 @@ class ThreatIntelReasoningBenchmark(Benchmark):
                     "correct_mc_pct": 0.0,
                 }
             response_count = per_model["stat_per_model_per_report"][report]
-            per_model["stat_per_model_per_report"][report] = (
-                ThreatIntelReasoningBenchmark.update_dict_counts(
-                    response, response_count
-                )
+            per_model["stat_per_model_per_report"][
+                report
+            ] = ThreatIntelReasoningBenchmark.update_dict_counts(
+                response, response_count
             )
 
             source = response["source"]
@@ -326,10 +326,10 @@ class ThreatIntelReasoningBenchmark(Benchmark):
                     "correct_mc_pct": 0.0,
                 }
             response_count = per_model["stat_per_model_per_source"][source]
-            per_model["stat_per_model_per_source"][source] = (
-                ThreatIntelReasoningBenchmark.update_dict_counts(
-                    response, response_count
-                )
+            per_model["stat_per_model_per_source"][
+                source
+            ] = ThreatIntelReasoningBenchmark.update_dict_counts(
+                response, response_count
             )
 
         if (stat_path := self.stat_path) is not None:

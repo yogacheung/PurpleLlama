@@ -840,30 +840,30 @@ class AutoPatchingBenchmark(Benchmark):
             arvo_challenge_number = response[
                 AutoPatchingBenchmark.RESPONSES_ARVO_CHALLENGE_NUMBER_KEY
             ]
-            assert isinstance(arvo_challenge_number, int), (
-                f"{AutoPatchingBenchmark.RESPONSES_ARVO_CHALLENGE_NUMBER_KEY} should be an int"
-            )
+            assert isinstance(
+                arvo_challenge_number, int
+            ), f"{AutoPatchingBenchmark.RESPONSES_ARVO_CHALLENGE_NUMBER_KEY} should be an int"
 
             rebuilt_binary = response.get(
                 AutoPatchingBenchmark.RESPONSES_REBUILT_BINARY_KEY
             )
-            assert isinstance(rebuilt_binary, str), (
-                f"{AutoPatchingBenchmark.RESPONSES_REBUILT_BINARY_KEY} should be a str"
-            )
+            assert isinstance(
+                rebuilt_binary, str
+            ), f"{AutoPatchingBenchmark.RESPONSES_REBUILT_BINARY_KEY} should be a str"
 
             patched_function_name = response.get(
                 AutoPatchingBenchmark.RESPONSES_PATCHED_FUNCTION_KEY
             )
-            assert isinstance(patched_function_name, str), (
-                f"{AutoPatchingBenchmark.RESPONSES_PATCHED_FUNCTION_KEY} should be a str"
-            )
+            assert isinstance(
+                patched_function_name, str
+            ), f"{AutoPatchingBenchmark.RESPONSES_PATCHED_FUNCTION_KEY} should be a str"
 
             containers_pass_qa_checks = response.get(
                 AutoPatchingBenchmark.RESPONSES_CONTAINERS_PASS_QA_CHECKS_KEY, False
             )
-            assert isinstance(containers_pass_qa_checks, bool), (
-                f"{AutoPatchingBenchmark.RESPONSES_CONTAINERS_PASS_QA_CHECKS_KEY} should be a bool"
-            )
+            assert isinstance(
+                containers_pass_qa_checks, bool
+            ), f"{AutoPatchingBenchmark.RESPONSES_CONTAINERS_PASS_QA_CHECKS_KEY} should be a bool"
 
             # Initialize result dictionary for this challenge
             evaluation_results[model][arvo_challenge_number] = {}
@@ -871,9 +871,9 @@ class AutoPatchingBenchmark(Benchmark):
 
             # Check if containers passed QA checks
             if not containers_pass_qa_checks:
-                result_dict[AutoPatchingBenchmark.EVALUATION_PASSED_QA_CHECKS_KEY] = (
-                    False
-                )
+                result_dict[
+                    AutoPatchingBenchmark.EVALUATION_PASSED_QA_CHECKS_KEY
+                ] = False
                 result[AutoPatchingBenchmark.EVALUATION_PASSED_QA_CHECKS_KEY] = False
                 logging.info(
                     f"ARVO #{arvo_challenge_number} failed QA checks. Sample being excluded from set."
@@ -933,9 +933,9 @@ class AutoPatchingBenchmark(Benchmark):
                 result_dict[
                     AutoPatchingBenchmark.EVALUATION_FULL_FUZZING_PASSED_KEY
                 ] = full_fuzzing_passed
-                result[AutoPatchingBenchmark.EVALUATION_FULL_FUZZING_PASSED_KEY] = (
-                    full_fuzzing_passed
-                )
+                result[
+                    AutoPatchingBenchmark.EVALUATION_FULL_FUZZING_PASSED_KEY
+                ] = full_fuzzing_passed
             except Exception as e:
                 print(f"FAILED FUZZING: {e} {traceback.format_exc()}")
                 result_dict[

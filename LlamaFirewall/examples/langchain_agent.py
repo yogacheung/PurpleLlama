@@ -171,10 +171,11 @@ class LangChainAgent:
 
                 # Process each message and update the trace
                 for message in messages:
-                    scan_result, updated_trace = (
-                        self.llama_firewall.scan_replay_build_trace(
-                            message, self.stored_trace
-                        )
+                    (
+                        scan_result,
+                        updated_trace,
+                    ) = self.llama_firewall.scan_replay_build_trace(
+                        message, self.stored_trace
                     )
                     # Update the stored trace if the message passes the scan
                     self.stored_trace = updated_trace

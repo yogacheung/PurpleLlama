@@ -12,6 +12,7 @@ potentially insecure code from a given input text.
 
 import logging
 import sys
+
 # pyre-strict
 
 from typing import Dict, Optional
